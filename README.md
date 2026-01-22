@@ -41,6 +41,38 @@ OPENAI_API_KEY=sk-...    # OpenAI API Key for GPT Analysis
 GITHUB_TOKEN=ghp_...     # GitHub Personal Access Token
 ```
 
+## 🛠️ Local Installation
+
+Follow these steps to run the app on your machine.
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Yaseenmahek/github-issue-assistant.git
+cd github-issue-assistant
+```
+
+### 2. Setup Virtual Environment
+
+**🪟 Windows:**
+```powershell
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+**🐧 Linux / macOS:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 3. Run the App
+```bash
+streamlit run streamlit_app.py
+```
+Open **http://localhost:8501** in your browser.
+
 ## 🌐 Deployment
 
 **Streamlit Community Cloud (Production)**
