@@ -1,78 +1,64 @@
-# GitHub Issue Assistant
+# 🐞 GitHub Issue Assistant
 
-A web app that analyzes GitHub issues using AI. Built as part of my Seedling Labs Engineering Internship project.
+> **AI-Powered GitHub Issue Analysis Tool**  
+> *Seedling Labs Engineering Assignment - 2026*
 
-## What it does
+A professional streamit application that automatically fetches and analyzes GitHub issues using OpenAI's GPT models. It provides structured JSON outputs strictly adhering to Seedling Labs' engineering standards.
 
-Enter a GitHub repository URL and issue number, and the app will:
-- Fetch the issue details from GitHub
-- Analyze it using OpenAI's GPT model
-- Return a structured JSON response with summary, type, priority, labels, and impact
+## 🔑 Key Features
 
-## Output Format
+| Feature | Description |
+| :--- | :--- |
+| **🤖 AI Analysis** | Automates issue classification using GPT-3.5 Turbo with strict JSON schema enforcement. |
+| **🛡️ Hybrid Secrets** | Intelligent secret loading that works seamlessly on both Local (`.env`) and Cloud (`st.secrets`) environments. |
+| **📦 Unified Architecture** | Single-file architecture (`streamlit_app.py`) for zero-latency deployment on Streamlit Cloud. |
+| **📊 Structured Output** | Delivers precise JSON with `summary`, `type`, `priority_score`, and `potential_impact`. |
+| **⚡ Real-time Fetching** | Integrates directly with GitHub REST API to pull live issue data. |
 
-```json
-{
-  "summary": "Brief description of the issue",
-  "type": "bug | feature_request | documentation | question | other",
-  "priority_score": "1-5 with justification",
-  "suggested_labels": ["label1", "label2"],
-  "potential_impact": "Impact if not addressed"
-}
-```
+## 📂 Project Structure
 
-## Tech Stack
-
-- Python 3.10+
-- Streamlit (frontend)
-- OpenAI API (GPT-3.5)
-- GitHub REST API
-
-## Setup
-
-1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/github-issue-assistant.git
-cd github-issue-assistant
+github-issue-assistant/
+├── streamlit_app.py       # 🚀 Main Application (Frontend + Backend)
+├── requirements.txt       # 📦 Dependencies
+├── .env.example          # 🔐 Environment Variables Template
+├── .gitignore            # 🙈 Git Ignore Rules
+├── README.md             # 📄 Documentation
+├── frontend/             # 🎨 Archived React Frontend (Reference)
+└── backend/              # 🐍 Archived FastAPI Backend (Reference)
 ```
 
-2. Install dependencies
-```bash
-pip install -r requirements.txt
+## ⚙️ Environment Variables
+
+To run the application, you need the following keys.  
+**Auto-Detection:** The app automatically scans `.env` locally or `Secrets` in the cloud.
+
+```ini
+# Required
+OPENAI_API_KEY=sk-...    # OpenAI API Key for GPT Analysis
+
+# Optional (Recommended for higher limits)
+GITHUB_TOKEN=ghp_...     # GitHub Personal Access Token
 ```
 
-3. Create `.env` file with your API keys
-```
-OPENAI_API_KEY=your_openai_key
-GITHUB_TOKEN=your_github_token
-```
+## 🌐 Deployment
 
-4. Run the app
-```bash
-streamlit run streamlit_app.py
-```
+**Streamlit Community Cloud (Production)**
 
-5. Open http://localhost:8501 in your browser
+*   **Live URL:** [https://github-issue-assistant-YOUR-APP.streamlit.app](https://share.streamlit.io)
+*   **Runtime:** Python 3.10+
+*   **Secrets:** Managed via Streamlit Cloud Dashboard
 
-## Deployment
+### 🚀 Quick Deploy
+1.  Push code to GitHub.
+2.  Go to **[share.streamlit.io](https://share.streamlit.io)**.
+3.  Deploy from existing repo.
+4.  Add secrets in **Settings > Secrets**.
 
-The app can be deployed on Streamlit Cloud:
-1. Push code to GitHub (make sure `.env` is in `.gitignore`)
-2. Go to share.streamlit.io
-3. Connect your repo and set `streamlit_app.py` as the main file
-4. Add your API keys in the Secrets section
+## 🔗 Links
 
-## Project Structure
+*   **GitHub Repository:** [Yaseenmahek/github-issue-assistant](https://github.com/Yaseenmahek/github-issue-assistant)
+*   **Live Demo:** [Streamlit Cloud App](https://share.streamlit.io)
 
-```
-├── streamlit_app.py    # Main application
-├── requirements.txt    # Dependencies
-├── .env.example        # Environment variables template
-├── .gitignore          # Git ignore rules
-└── README.md           # This file
-```
-
-## Author
-
-Yaseen Mahek  
-Seedling Labs Engineering assignment - 2026
+---
+*Developed by **Yaseen Mahek***
