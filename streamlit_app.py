@@ -16,6 +16,8 @@ import warnings
 from typing import Optional, Dict, Any, List, Tuple
 from datetime import datetime
 import base64
+import csv
+import io
 
 # Suppress Streamlit secrets file warnings
 warnings.filterwarnings("ignore", message=".*secrets.*")
@@ -487,6 +489,33 @@ def display_analysis(result: Dict[str, Any], issue_url: str) -> None:
     st.markdown("### 📋 Raw JSON Output")
     json_output = json.dumps(result, indent=2, ensure_ascii=False)
     st.code(json_output, language="json")
+
+    # CSV Download Button
+    st.divider()
+    
+    # Create CSV in memory
+    csv_buffer = io.StringIO()
+    csv_writer = csv.writer(csv_buffer)
+    
+    # Write headers and data (Single row format)
+    headers = ["summary", "type", "priority_score", "potential_impact", "suggested_labels"]
+    csv_writer.writerow(headers)
+    
+    csv_writer.writerow([
+        result.get("summary", ""),
+        result.get("type", ""),
+        result.get("priority_score", ""),
+        result.get("potential_impact", ""),
+        ", ".join(result.get("suggested_labels", []))
+    ])
+    
+    st.download_button(
+        label="📥 Download Analysis as CSV",
+        data=csv_buffer.getvalue(),
+        file_name=f"issue_analysis_{int(datetime.now().timestamp())}.csv",
+        mime="text/csv",
+        use_container_width=True
+    )
 
 
 def check_api_keys() -> Tuple[bool, bool]:
