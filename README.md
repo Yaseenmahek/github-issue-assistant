@@ -90,7 +90,7 @@ Open **http://localhost:8501** in your browser.
 ## 🔗 Links
 
 *   **GitHub Repository:** [Yaseenmahek/github-issue-assistant](https://github.com/Yaseenmahek/github-issue-assistant)
-*   **Live Demo:** [Streamlit Cloud App](https://share.streamlit.io)
+*   **Live Demo:** [Live URL](https://yaseenmahek-github-issue-assistant-streamlit-app-jw47xx.streamlit.app/)
 
 ---
 *Developed by **Yaseen Mahek***
